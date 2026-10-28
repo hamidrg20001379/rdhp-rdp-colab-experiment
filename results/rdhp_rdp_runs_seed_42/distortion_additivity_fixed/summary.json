@@ -1,0 +1,254 @@
+{
+  "seed": 42,
+  "selection_seed": 0,
+  "device": "cuda",
+  "checkpoint": "/content/drive/MyDrive/rdhp_rdp_runs_seed_42/dense_resnet32.pt",
+  "calibration_samples": 1024,
+  "test_samples": 1000,
+  "selected_layers": [
+    {
+      "index": 0,
+      "name": "conv1"
+    },
+    {
+      "index": 3,
+      "name": "layer1.1.conv1"
+    },
+    {
+      "index": 6,
+      "name": "layer1.2.conv2"
+    },
+    {
+      "index": 9,
+      "name": "layer1.4.conv1"
+    },
+    {
+      "index": 12,
+      "name": "layer2.0.conv2"
+    },
+    {
+      "index": 15,
+      "name": "layer2.1.conv2"
+    },
+    {
+      "index": 18,
+      "name": "layer2.3.conv1"
+    },
+    {
+      "index": 21,
+      "name": "layer2.4.conv2"
+    },
+    {
+      "index": 24,
+      "name": "layer3.0.downsample.0"
+    },
+    {
+      "index": 27,
+      "name": "layer3.2.conv1"
+    },
+    {
+      "index": 30,
+      "name": "layer3.3.conv2"
+    },
+    {
+      "index": 33,
+      "name": "fc"
+    }
+  ],
+  "pair_indices": [
+    [
+      18,
+      33
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      9,
+      33
+    ],
+    [
+      30,
+      33
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      15,
+      30
+    ],
+    [
+      0,
+      27
+    ],
+    [
+      9,
+      24
+    ],
+    [
+      3,
+      15
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      24,
+      27
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      24
+    ],
+    [
+      18,
+      24
+    ],
+    [
+      6,
+      30
+    ],
+    [
+      6,
+      15
+    ],
+    [
+      12,
+      30
+    ],
+    [
+      9,
+      21
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      9,
+      30
+    ],
+    [
+      6,
+      27
+    ],
+    [
+      24,
+      30
+    ],
+    [
+      12,
+      27
+    ]
+  ],
+  "group_indices": [
+    [
+      15,
+      18,
+      27,
+      6
+    ],
+    [
+      21,
+      12,
+      27,
+      24
+    ],
+    [
+      30,
+      12,
+      21,
+      18
+    ],
+    [
+      21,
+      12,
+      9,
+      15
+    ],
+    [
+      24,
+      18,
+      30,
+      0
+    ],
+    [
+      6,
+      33,
+      9,
+      21
+    ],
+    [
+      33,
+      27,
+      30,
+      9
+    ],
+    [
+      33,
+      0,
+      12,
+      27
+    ],
+    [
+      21,
+      0,
+      27,
+      6
+    ],
+    [
+      15,
+      3,
+      27,
+      33
+    ],
+    [
+      18,
+      6,
+      0,
+      21
+    ],
+    [
+      18,
+      0,
+      24,
+      33
+    ]
+  ],
+  "ratios": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "definition": {
+    "distortion": "mean squared logit error versus dense model",
+    "additive_prediction": "sum of single-layer distortions",
+    "interaction": "joint distortion minus additive prediction"
+  },
+  "pair_rows": 72,
+  "pair_calib_mean_ratio_median": 0.9987853456033882,
+  "pair_calib_mean_relative_interaction_median": -0.0012146543966119186,
+  "pair_test_mean_ratio_median": 1.0105274467031395,
+  "pair_test_mean_relative_interaction_median": 0.010527446703139601,
+  "pair_calib_max_ratio_median": 0.9769540729310038,
+  "pair_test_max_ratio_median": 0.9519397937398981,
+  "group_rows": 12,
+  "group_calib_mean_ratio_median": 1.0535162120977146,
+  "group_calib_mean_relative_interaction_median": 0.05351621209771476,
+  "group_test_mean_ratio_median": 1.051357989175448,
+  "group_test_mean_relative_interaction_median": 0.05135798917544804,
+  "group_calib_max_ratio_median": 1.0573196102833375,
+  "group_test_max_ratio_median": 0.9415682011056928
+}
