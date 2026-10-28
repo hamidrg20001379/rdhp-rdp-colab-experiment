@@ -1,0 +1,81 @@
+{
+  "seed": 42,
+  "device": "cuda",
+  "checkpoint": "/content/drive/MyDrive/rdhp_rdp_runs_seed_42/dense_resnet32.pt",
+  "calibration_samples": 256,
+  "test_samples": 256,
+  "selected_layers": [
+    {
+      "index": 0,
+      "name": "conv1"
+    },
+    {
+      "index": 3,
+      "name": "layer1.1.conv1"
+    },
+    {
+      "index": 6,
+      "name": "layer1.2.conv2"
+    },
+    {
+      "index": 9,
+      "name": "layer1.4.conv1"
+    },
+    {
+      "index": 12,
+      "name": "layer2.0.conv2"
+    },
+    {
+      "index": 15,
+      "name": "layer2.1.conv2"
+    },
+    {
+      "index": 18,
+      "name": "layer2.3.conv1"
+    },
+    {
+      "index": 21,
+      "name": "layer2.4.conv2"
+    },
+    {
+      "index": 24,
+      "name": "layer3.0.downsample.0"
+    },
+    {
+      "index": 27,
+      "name": "layer3.2.conv1"
+    },
+    {
+      "index": 30,
+      "name": "layer3.3.conv2"
+    },
+    {
+      "index": 33,
+      "name": "fc"
+    }
+  ],
+  "ratios": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "definition": {
+    "distortion": "mean squared logit error versus dense model",
+    "additive_prediction": "sum of single-layer distortions",
+    "interaction": "joint distortion minus additive prediction"
+  },
+  "pair_rows": 72,
+  "pair_calib_mean_ratio_median": 1.0214483098941338,
+  "pair_calib_mean_relative_interaction_median": 0.021448309894133995,
+  "pair_test_mean_ratio_median": 1.0317008968095298,
+  "pair_test_mean_relative_interaction_median": 0.03170089680952981,
+  "pair_calib_max_ratio_median": 0.9789267117687716,
+  "pair_test_max_ratio_median": 0.9589345875653081,
+  "group_rows": 12,
+  "group_calib_mean_ratio_median": 0.9920235581659691,
+  "group_calib_mean_relative_interaction_median": -0.007976441834030944,
+  "group_test_mean_ratio_median": 1.0380036020315782,
+  "group_test_mean_relative_interaction_median": 0.038003602031578154,
+  "group_calib_max_ratio_median": 0.982636022130825,
+  "group_test_max_ratio_median": 0.9825810516571578
+}
