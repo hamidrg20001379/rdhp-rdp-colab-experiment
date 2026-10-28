@@ -1,0 +1,4 @@
+seed,method,group_id,layer_indices,layer_names,calibration_score,test_joint_distortion,test_oracle_distortion,relative_test_regret,dense_accuracy,immediate_accuracy,finetuned_accuracy,retained_fraction,sparsity
+44,additive,8,"3,6,21,27",layer1.1.conv1 | layer1.2.conv2 | layer2.4.conv2 | layer3.2.conv1,0.022553044371306896,0.032327257096767426,0.032327257096767426,0.0,55.9,54.2,55.4,0.9454301167878182,0.05456988321218181
+44,pair_corrected,8,"3,6,21,27",layer1.1.conv1 | layer1.2.conv2 | layer2.4.conv2 | layer3.2.conv1,0.03295118222013116,0.032327257096767426,0.032327257096767426,0.0,55.9,54.2,52.0,0.9454301167878182,0.05456988321218181
+44,direct_joint,8,"3,6,21,27",layer1.1.conv1 | layer1.2.conv2 | layer2.4.conv2 | layer3.2.conv1,0.033099472522735596,0.032327257096767426,0.032327257096767426,0.0,55.9,54.2,54.9,0.9454301167878182,0.05456988321218181

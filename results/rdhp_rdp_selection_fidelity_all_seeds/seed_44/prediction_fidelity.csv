@@ -1,0 +1,4 @@
+seed,method,rank_correlation_with_test_joint,calibration_mae_vs_test_joint
+44,additive,0.8951048951048951,0.01630425880042215
+44,pair_corrected,1.0,0.004259572364389896
+44,joint,1.0,0.0032658977434039116

@@ -1,0 +1,208 @@
+{
+  "seed": 43,
+  "selection_seed": 123,
+  "device": "cuda",
+  "checkpoint": "/content/drive/MyDrive/rdhp_rdp_runs_seed_43/dense_resnet32.pt",
+  "checkpoint_sha256": "f9042a403d7929f63f5196d7ff2edb37bc5917c2b9a1df125dee39f282ca1ece",
+  "calibration_samples": 1024,
+  "test_samples": 1000,
+  "prune_ratio": 0.5,
+  "finetune_epochs": 5,
+  "selected_layers": [
+    {
+      "index": 0,
+      "name": "conv1"
+    },
+    {
+      "index": 3,
+      "name": "layer1.1.conv1"
+    },
+    {
+      "index": 6,
+      "name": "layer1.2.conv2"
+    },
+    {
+      "index": 9,
+      "name": "layer1.4.conv1"
+    },
+    {
+      "index": 12,
+      "name": "layer2.0.conv2"
+    },
+    {
+      "index": 15,
+      "name": "layer2.1.conv2"
+    },
+    {
+      "index": 18,
+      "name": "layer2.3.conv1"
+    },
+    {
+      "index": 21,
+      "name": "layer2.4.conv2"
+    },
+    {
+      "index": 24,
+      "name": "layer3.0.downsample.0"
+    },
+    {
+      "index": 27,
+      "name": "layer3.2.conv1"
+    },
+    {
+      "index": 30,
+      "name": "layer3.3.conv2"
+    },
+    {
+      "index": 33,
+      "name": "fc"
+    }
+  ],
+  "candidate_groups": [
+    [
+      0,
+      18,
+      30,
+      33
+    ],
+    [
+      3,
+      9,
+      12,
+      30
+    ],
+    [
+      6,
+      12,
+      24,
+      27
+    ],
+    [
+      6,
+      12,
+      30,
+      33
+    ],
+    [
+      3,
+      9,
+      21,
+      33
+    ],
+    [
+      6,
+      24,
+      30,
+      33
+    ],
+    [
+      0,
+      3,
+      6,
+      15
+    ],
+    [
+      0,
+      3,
+      9,
+      33
+    ],
+    [
+      3,
+      6,
+      21,
+      27
+    ],
+    [
+      6,
+      12,
+      21,
+      33
+    ],
+    [
+      6,
+      12,
+      27,
+      30
+    ],
+    [
+      6,
+      15,
+      18,
+      30
+    ]
+  ],
+  "dense_accuracy": 57.1,
+  "selection_results": [
+    {
+      "seed": 43,
+      "method": "additive",
+      "group_id": 11,
+      "layer_indices": "6,15,18,30",
+      "layer_names": "layer1.2.conv2 | layer2.1.conv2 | layer2.3.conv1 | layer3.3.conv2",
+      "calibration_score": 0.05279123457148671,
+      "test_joint_distortion": 0.05878330022096634,
+      "test_oracle_distortion": 0.05878330022096634,
+      "relative_test_regret": 0.0,
+      "dense_accuracy": 57.1,
+      "immediate_accuracy": 56.2,
+      "finetuned_accuracy": 56.2,
+      "retained_fraction": 0.9379887690770662,
+      "sparsity": 0.06201123092293381
+    },
+    {
+      "seed": 43,
+      "method": "pair_corrected",
+      "group_id": 10,
+      "layer_indices": "6,12,27,30",
+      "layer_names": "layer1.2.conv2 | layer2.0.conv2 | layer3.2.conv1 | layer3.3.conv2",
+      "calibration_score": 0.05867469683289528,
+      "test_joint_distortion": 0.06060786545276642,
+      "test_oracle_distortion": 0.05878330022096634,
+      "relative_test_regret": 0.031038836284140926,
+      "dense_accuracy": 57.1,
+      "immediate_accuracy": 56.4,
+      "finetuned_accuracy": 55.8,
+      "retained_fraction": 0.908223378234058,
+      "sparsity": 0.09177662176594203
+    },
+    {
+      "seed": 43,
+      "method": "direct_joint",
+      "group_id": 10,
+      "layer_indices": "6,12,27,30",
+      "layer_names": "layer1.2.conv2 | layer2.0.conv2 | layer3.2.conv1 | layer3.3.conv2",
+      "calibration_score": 0.05906915292143822,
+      "test_joint_distortion": 0.06060786545276642,
+      "test_oracle_distortion": 0.05878330022096634,
+      "relative_test_regret": 0.031038836284140926,
+      "dense_accuracy": 57.1,
+      "immediate_accuracy": 56.4,
+      "finetuned_accuracy": 58.3,
+      "retained_fraction": 0.908223378234058,
+      "sparsity": 0.09177662176594203
+    }
+  ],
+  "prediction_fidelity": [
+    {
+      "seed": 43,
+      "method": "additive",
+      "rank_correlation_with_test_joint": 0.9090909090909092,
+      "calibration_mae_vs_test_joint": 0.023199403348068397
+    },
+    {
+      "seed": 43,
+      "method": "pair_corrected",
+      "rank_correlation_with_test_joint": 0.9720279720279721,
+      "calibration_mae_vs_test_joint": 0.004775398954128225
+    },
+    {
+      "seed": 43,
+      "method": "joint",
+      "rank_correlation_with_test_joint": 0.9930069930069931,
+      "calibration_mae_vs_test_joint": 0.002611363617082437
+    }
+  ],
+  "test_oracle_group_id": 11,
+  "elapsed_seconds": 121.81480711900002
+}
