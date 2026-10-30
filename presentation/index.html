@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>گزارش کوتاه پیشرفت آزمایش‌ها</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide title-slide active">
+      <p class="eyebrow">گزارش پیشرفت · این هفته</p>
+      <h1>این هفته چه کردم؟</h1>
+      <p class="lead">آزمایش‌های سه‌seed را کامل کردم و خروجی‌های قابل‌ردیابی برای RDP و RDHP ثبت کردم.</p>
+      <p class="small">ResNet-32 · CIFAR-10 · ۳ seed</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">۱ · پروتکل اجرا</p>
+      <h2>آزمایش را از یک اجرای منفرد به مقایسهٔ چندseed رساندم</h2>
+      <div class="evidence-grid">
+        <div class="evidence"><strong>داده</strong><span>۱۰۲۴ نمونهٔ calibration و ۱۰۰۰ نمونهٔ test</span></div>
+        <div class="evidence"><strong>تنکی</strong><span>هدف‌های ۵۰٪ و ۷۵٪ با ۲۰ نقطهٔ منحنی</span></div>
+        <div class="evidence"><strong>مقایسه</strong><span>additive، direct، pair-corrected و RDHP</span></div>
+      </div>
+      <p class="source">مدرک: سه seed برابر ۴۲، ۴۳ و ۴۴ در خروجی all-seed</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">۲ · جمع‌پذیری</p>
+      <h2>تقریب جمع‌پذیر برای دو لایه بهتر از گروه‌های بزرگ‌تر عمل می‌کند</h2>
+      <div class="evidence-grid">
+        <div class="evidence"><strong>زوج لایه‌ها</strong><span>نسبت خطای test حدود ۱٫۰۲ برابر؛ interaction حدود ۲٫۲٪</span></div>
+        <div class="evidence"><strong>گروه لایه‌ها</strong><span>نسبت خطای test حدود ۱٫۰۷ برابر؛ interaction حدود ۶٫۷٪</span></div>
+        <div class="evidence"><strong>برداشت</strong><span>با بزرگ‌تر شدن گروه، فرض جمع‌پذیری ضعیف‌تر می‌شود.</span></div>
+      </div>
+      <p class="source">مدرک: results/rdhp_rdp_additivity_fixed_all_seeds/all_seeds_summary.json</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">۳ · انتخاب mask</p>
+      <h2>اصلاح pair، پیش‌بینی انتخاب را به آزمون واقعی نزدیک‌تر کرد</h2>
+      <div class="two-col">
+        <div>
+          <h3>همبستگی رتبه‌ای با test joint</h3>
+          <div class="big-number">≈ ۰٫۹۸۴</div>
+          <p>pair-corrected در سه seed</p>
+        </div>
+        <div class="warning">
+          <h3>مقایسهٔ مرجع</h3>
+          <p>additive حدود ۰٫۹۱۶ بود؛ direct joint حدود ۰٫۹۹۱ شد، اما از test برای انتخاب استفاده می‌کند و oracle است.</p>
+        </div>
+      </div>
+      <p class="source">مدرک: results/rdhp_rdp_selection_fidelity_all_seeds/all_seeds_summary.json</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">۴ · نتیجهٔ شبکهٔ کامل</p>
+      <h2>بودجهٔ تنکی دقیق است؛ اما برتری روش‌ها ثابت و عمومی نیست</h2>
+      <div class="evidence-grid">
+        <div class="evidence"><strong>هدف ۵۰٪</strong><span>تنکی واقعی تقریباً ۴۹٫۹ تا ۵۰٫۰٪؛ کاهش FLOPs به‌صورت proxy حدود ۲۹ تا ۳۶٪</span></div>
+        <div class="evidence"><strong>هدف ۷۵٪</strong><span>تنکی واقعی تقریباً ۷۵٪؛ کاهش FLOPs به‌صورت proxy حدود ۴۸ تا ۶۳٪</span></div>
+        <div class="evidence"><strong>دقت</strong><span>پس از fine-tune، رتبهٔ روش‌ها با سطح تنکی و seed تغییر می‌کند.</span></div>
+      </div>
+      <p class="source">مدرک: results/rdhp_rdp_full_network_corrected_all_seeds/all_seeds_mean_std.csv</p>
+    </section>
+
+    <section class="slide final-slide">
+      <p class="eyebrow">۵ · جمع‌بندی</p>
+      <h2>پیام اصلی</h2>
+      <p class="quote">این هفته مسیر آزمایش از کد اولیه به اجرای چندseed و خروجی قابل‌ممیزی رسید؛ direct RDP مرجع distortion است، pair-corrected به آن نزدیک‌تر می‌شود، و جمع‌پذیری هنوز محدودیت دارد.</p>
+      <h3>قدم بعدی</h3>
+      <p>مقایسهٔ منصفانه در budgetهای یکسان، تثبیت پروتکل fine-tune، و جدا کردن proxy محاسباتی از سرعت واقعی سخت‌افزار.</p>
+    </section>
+  </main>
+
+  <nav class="controls" aria-label="کنترل ارائه">
+    <button id="prev" type="button">قبلی</button>
+    <span id="counter">۱ / ۶</span>
+    <button id="next" type="button">بعدی</button>
+  </nav>
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const counter = document.querySelector('#counter');
+    let current = 0;
+    const persian = (value) => String(value).replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      counter.textContent = `${persian(current + 1)} / ${persian(slides.length)}`;
+    }
+    document.querySelector('#prev').addEventListener('click', () => show(current - 1));
+    document.querySelector('#next').addEventListener('click', () => show(current + 1));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowDown' || event.key === ' ') show(current + 1);
+      if (event.key === 'ArrowRight' || event.key === 'ArrowUp') show(current - 1);
+    });
+  </script>
+</body>
+</html>
