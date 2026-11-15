@@ -25,11 +25,14 @@ VGG-16 and DenseNet-121 use the CIFAR-compatible definitions in
 `cifar_model_zoo.py`; these are explicit adaptations and should not be called
 exact author-code reproductions.
 
-Run the structural smoke test with:
+Run the structural smoke test for the adapted models with:
 
 ```sh
-python run_cross_model_pairwise.py --self-test
+python run_cross_model_pairwise.py --self-test --model vgg16 densenet121
 ```
+
+Include `resnet32` in `--model` only when `--thesis-root` points to the
+checked-out `my-thesis` repository containing the pinned ResNet source.
 
 For real data, prepare a dense checkpoint for every requested model and seed,
 then use a path template containing `{model}` and `{seed}`:

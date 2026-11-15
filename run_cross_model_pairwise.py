@@ -337,8 +337,8 @@ def run_seed(model_name, seed, config, ops, output_dir, pair_indices, layer_name
     return results_df
 
 
-def self_test(thesis_root: Path | None) -> None:
-    for name in MODEL_NAMES:
+def self_test(thesis_root: Path | None, model_names: list[str]) -> None:
+    for name in model_names:
         model = load_model(name, thesis_root=thesis_root)
         output = model(torch.randn(2, 3, 32, 32))
         assert tuple(output.shape) == (2, 10)
@@ -374,7 +374,7 @@ def main() -> None:
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     if args.self_test:
-        self_test(args.thesis_root)
+        self_test(args.thesis_root, args.model)
         return
     if args.output is None:
         raise ValueError("real runs require --output")
