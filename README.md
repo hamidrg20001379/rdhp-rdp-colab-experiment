@@ -6,7 +6,8 @@ reconstructed TPAMI 2025 RDHP/RDP ResNet-32 CIFAR-10 experiments.
 The notebook clones `hamidrg20001379/my-thesis` with its submodules, runs the
 software checks and synthetic smoke test, and provides an opt-in real-data
 pilot using a shared dense checkpoint. Add a Colab Secret named
-`GITHUB_TOKEN` with private-repository read access before cloning.
+`GITHUB_TOKEN` with private-repository read/write access before cloning and
+pushing generated checkpoints.
 
 The real-data run is disabled by default. The notebook records achieved
 sparsity and method metadata, but it does not turn a pilot into a claimed
